@@ -1,0 +1,12 @@
+D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net9.0\YilmazHostingCore.csproj.AssemblyReference.cache
+D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net9.0\YilmazHostingCore.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net9.0\YilmazHostingCore.AssemblyInfoInputs.cache
+D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net9.0\YilmazHostingCore.AssemblyInfo.cs
+D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net9.0\YilmazHostingCore.csproj.CoreCompileInputs.cache
+D:\Kodlama\CSharp\YilmazHostingCore\bin\Debug\net9.0\YilmazHostingCore.deps.json
+D:\Kodlama\CSharp\YilmazHostingCore\bin\Debug\net9.0\YilmazHostingCore.dll
+D:\Kodlama\CSharp\YilmazHostingCore\bin\Debug\net9.0\YilmazHostingCore.pdb
+D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net9.0\YilmazHostingCore.dll
+D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net9.0\refint\YilmazHostingCore.dll
+D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net9.0\YilmazHostingCore.pdb
+D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net9.0\ref\YilmazHostingCore.dll
