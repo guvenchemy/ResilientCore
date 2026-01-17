@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ResilientArena")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+26d2e34e2d4af2594a9cc290e5ddacb57c795448")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9aef57675104484dc38650a18d7995d6e66d43d4")]
 [assembly: System.Reflection.AssemblyProductAttribute("ResilientArena")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ResilientArena")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

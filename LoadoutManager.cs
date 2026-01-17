@@ -7,7 +7,7 @@ public class LoadoutManager
 {
     private Dictionary<int, string> _playerLoadouts = new();
 
-    // Tabanca listesini tanımlayalım ki ona göre yan silah verip vermeyeceğimize karar verelim
+
     private readonly HashSet<string> _pistols = new()
     {
         "weapon_deagle", "weapon_usp_silencer", "weapon_glock",
@@ -28,7 +28,7 @@ public class LoadoutManager
 
         switch (command)
         {
-            // --- TÜFEKLER ---
+
             case "ak47":
             case "ak":
                 newWeapon = "weapon_ak47"; weaponName = "AK-47"; break;
@@ -56,7 +56,7 @@ public class LoadoutManager
             case "sg553":
                 newWeapon = "weapon_sg553"; weaponName = "SG 553"; break;
 
-            // --- TABANCALAR ---
+
             case "deagle":
             case "deag":
                 newWeapon = "weapon_deagle"; weaponName = "Deagle"; break;
@@ -74,7 +74,7 @@ public class LoadoutManager
             case "tec9":
                 newWeapon = "weapon_tec9"; weaponName = "Tec-9"; break;
 
-            // --- YARDIM ---
+
             case "yardim":
             case "help":
             case "komutlar":
