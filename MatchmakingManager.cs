@@ -2,7 +2,7 @@ using CounterStrikeSharp.API;
 using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Utils;
 
-namespace YilmazHostingCore;
+namespace ResilientArena;
 
 public class MatchmakingManager
 {

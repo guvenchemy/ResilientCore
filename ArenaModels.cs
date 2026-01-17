@@ -2,7 +2,7 @@ using CounterStrikeSharp.API.Modules.Utils;
 using CounterStrikeSharp.API.Core;
 using System.Text.Json.Serialization;
 
-namespace YilmazHostingCore;
+namespace ResilientArena;
 
 // JSON Config Yapısı
 public class ArenaConfig

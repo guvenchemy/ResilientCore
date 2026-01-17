@@ -1,69 +1,78 @@
-# Yilmaz Hosting Core (v8.0.0)
+# Resilient Arena (v1.0.0)
 
-**Yazar:** Chemist
-**Versiyon:** 8.0.0 (Dynamic Matchmaking & Loadout System)
+**Author:** Chemist
+**Version:** 1.0.0 (Dynamic Matchmaking & Loadout System)
+**Framework:** [CounterStrikeSharp](https://github.com/roflmuffin/CounterStrikeSharp)
 
-## Genel Bakış
-Yilmaz Hosting Core, Counter-Strike 2 sunucuları için geliştirilmiş, **tamamen dinamik** bir 1v1 Arena ve Deathmatch yönetim sistemidir. v8.0.0 ile birlikte gelen yeni "Dynamic Matchmaking" sistemi, oyuncuları anlık olarak takip eder, oyuna girenleri beklemeden eşleştirir ve ölenleri anında yeni bir rakiple buluşturur.
+## Overview
+**Resilient Arena** is a comprehensive 1v1 Arena and Deathmatch management system developed for **Counter-Strike 2** servers using **CounterStrikeSharp**. This plugin completely transforms your server into a dynamic 1v1 arena experience. It handles everything: automatic matchmaking, infinite round loops, weapon loadouts, and spatial management of multiple arenas within a single map.
 
-## Yeni Özellikler (v8.0.0)
+## Getting Started / Tutorial
 
-### 1. Dinamik Eşleştirme (Dynamic Matchmaking)
-- **Bekleme Yok:** Sunucuya giren oyuncu 2 saniye içinde sisteme dahil olur.
-- **Kazanan Kalır:** Bir düelloyu kazanan kişi arenada kalır, kaybeden veya yeni giren kişi anında uygun bir arenaya yerleştirilir.
-- **Akıllı Yönetim:** `MatchmakingManager` sınıfı, tüm oyuncu durumlarını (Boşta, Savaşta, Ölü) anlık takip eder.
+### Prerequisites
+1.  Install Metamod:Source for CS2.
+2.  Install **CounterStrikeSharp** (latest version).
+3.  Place the `ResilientArena` plugin binaries into `game/csgo/addons/counterstrikesharp/plugins/ResilientArena`.
 
-### 2. Loadout & Silah Sistemi
-- **Chat Komutları:** Oyuncular `.` veya `!` ile başlayan komutlarla (örn: `.yardim`) silahlarını veya tercihlerini yönetebilir (`LoadoutManager`).
-- **Otomatik Dağıtım:** Her yeniden doğuşta veya raund başında oyunculara belirlenen teçhizatlar otomatik verilir.
-
-### 3. Harita Döngüsü
-- **Workshop Entegrasyonu:** Raund veya maç bittiğinde sunucu otomatik olarak belirlenen Workshop haritasına (`host_workshop_map`) geçiş yapar.
-
----
-
-## Yönetici Komutları (Admin Commands)
-
-Aşağıdaki komutlar sunucu yöneticileri içindir:
-
-### `yh_arena_add <no> <takım>`
-Doğma noktası ekler.
-- `yh_arena_add 1 ct`
-- `yh_arena_add 1 t`
-
-### `yh_arena_save`
-Arena ayarlarını JSON dosyasına kaydeder.
-
-### `yh_fix_data`
-Hatalı kaydedilmiş (T/CT karışmış) verileri onarır.
-
-### `yh_start`
-Oyunu ve modu manuel olarak başlatır/resetler.
-
-### `yh_get_pos`
-Anlık koordinat bilgisini gösterir.
-
-### Bot Yönetimi
-- `yh_bot_add`: Bot ekler.
-- `yh_bot_kick`: Botları atar.
+### Step-by-Step Setup
+1.  **Launch Server:** Start your CS2 server with the map you want to configure (e.g., `de_mirage`).
+2.  **Join Server:** Connect to your server as an administrator.
+3.  **Locate Arena 1:** Go to the location where you want the first duel to happen.
+4.  **Set Spawn Points:**
+    *   Stand where you want Team A (CT) to spawn and type: `ra_arena_add 1 ct`
+    *   Stand where you want Team B (T) to spawn and type: `ra_arena_add 1 t`
+5.  **Create More Arenas:** Move to a new location for Arena 2 and repeat:
+    *   `ra_arena_add 2 ct`
+    *   `ra_arena_add 2 t`
+6.  **Save Configuration:** Once you have created all your arenas, type: `ra_arena_save`
+    *   *This is critical! If you don't save, all points will be lost on restart.*
+7.  **Restart:** Type `ra_start` or restart the server to begin the matchmaking loop.
 
 ---
 
-## Teknik Detaylar (Geliştiriciler İçin)
+## Admin Commands Explained
 
-### Mimari Değişiklikler
-v8.0.0 ile birlikte kod yapısı modüler hale getirilmiştir:
-- **`YilmazPlugin`**: Ana giriş noktası. Eventleri dinler ve ilgili Manager'a iletir.
-- **`ArenaManager`**: Arena koordinatlarını ve dosya işlemlerini yönetir.
-- **`MatchmakingManager`**: Oyuncu eşleştirmelerini, arena doluluk oranlarını ve spawn sırasını yönetir.
-- **`LoadoutManager`**: Silah, skin ve chat komutlarını işler.
+### `ra_arena_add <no> <team>`
+**What does it do?**
+It records your player's current X, Y, Z coordinates and looking angle as a spawn point for a specific "Arena" and "Team".
 
-### Yapılandırma
-`arenas_<MapName>.json` dosyası, harita bazlı spawn noktalarını tutmaya devam eder.
+**Why do we need it?**
+CS2 maps usually have standard spawn points (T Spawn / CT Spawn). However, for a 1v1 Multi-Arena mode, we need custom spawn points scattered across the map (e.g., one pair in A site, one pair in B site, one pair in Mid). This command allows you to define these custom duel locations manually without editing the map file itself.
 
-```json
-{
-  "MapName": "de_mirage",
-  "Arenas": [ { "ArenaID": 1, ... } ]
-}
-```
+**How to use:**
+- `ra_arena_add 1 ct`: Sets the Counter-Terrorist spawn for Arena #1 at your feet.
+- `ra_arena_add 1 t`: Sets the Terrorist spawn for Arena #1 at your feet.
+
+### `ra_arena_save`
+**What does it do?**
+Writes all the points you added using `ra_arena_add` into a JSON file (e.g., `arenas_de_mirage.json`).
+
+**Why do we need it?**
+The plugin keeps your added points in temporary memory (RAM). If the server crashes or changes level, they are gone. This command persists them to disk so they are loaded automatically next time.
+
+### `ra_fix_data`
+**What does it do?**
+Scans the configuration for common mistakes, specifically where a user might have saved a T spawn but forgot the CT spawn, or saved data into the wrong "slot". It tries to auto-correct standard human errors.
+
+### `ra_start`
+**What does it do?**
+Forces the Matchmaking Manager to reset and start the game loop immediately. Useful if the game state gets stuck or you just finished setting up arenas.
+
+---
+
+## Key Features
+
+### 1. Dynamic Matchmaking
+- **No Waiting:** Players joining the server are included in the system within 2 seconds.
+- **Winner Stays On:** The winner of a duel stays in the arena, while the loser or a newly joined player is immediately placed in an available arena.
+- **Smart Management:** The `MatchmakingManager` class instantly tracks all player states (Idle, Fighting, Dead).
+
+### 2. Loadout & Weapon System
+- **Chat Commands:** Players can manage their weapons or preferences using commands starting with `.` or `!` (e.g., `.help`) via the `LoadoutManager`.
+- **Automatic Distribution:** Equipment is automatically given to players upon every respawn or round start.
+
+### 3. Map Rotation
+- **Workshop Integration:** When a round or match ends, the server automatically switches to the specified Workshop map (`host_workshop_map`).
+
+## Acknowledgments
+This project is built upon the powerful **CounterStrikeSharp** framework, which allows C# development for Counter-Strike 2.

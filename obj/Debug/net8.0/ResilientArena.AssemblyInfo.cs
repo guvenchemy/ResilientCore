@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("YilmazHostingCore")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("ResilientArena")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+26d2e34e2d4af2594a9cc290e5ddacb57c795448")]
-[assembly: System.Reflection.AssemblyProductAttribute("YilmazHostingCore")]
-[assembly: System.Reflection.AssemblyTitleAttribute("YilmazHostingCore")]
+[assembly: System.Reflection.AssemblyProductAttribute("ResilientArena")]
+[assembly: System.Reflection.AssemblyTitleAttribute("ResilientArena")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // MSBuild WriteCodeFragment sınıfı tarafından oluşturuldu.

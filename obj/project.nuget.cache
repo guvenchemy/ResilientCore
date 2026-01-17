@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PW77MG4SSbw=",
+  "dgSpecHash": "MtD4ojuQ/+U=",
   "success": true,
-  "projectFilePath": "D:\\Kodlama\\CSharp\\YilmazHostingCore\\YilmazHostingCore.csproj",
+  "projectFilePath": "D:\\Kodlama\\CSharp\\YilmazHostingCore\\ResilientArena.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\guven\\.nuget\\packages\\counterstrikesharp.api\\1.0.355\\counterstrikesharp.api.1.0.355.nupkg.sha512",
     "C:\\Users\\guven\\.nuget\\packages\\mcmaster.netcore.plugins\\1.4.0\\mcmaster.netcore.plugins.1.4.0.nupkg.sha512",

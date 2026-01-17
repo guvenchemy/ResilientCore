@@ -6,12 +6,12 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "YilmazHostingCore/1.0.0": {
+      "ResilientArena/1.0.0": {
         "dependencies": {
           "CounterStrikeSharp.API": "1.0.355"
         },
         "runtime": {
-          "YilmazHostingCore.dll": {}
+          "ResilientArena.dll": {}
         }
       },
       "CounterStrikeSharp.API/1.0.355": {
@@ -543,7 +543,7 @@
     }
   },
   "libraries": {
-    "YilmazHostingCore/1.0.0": {
+    "ResilientArena/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -3,11 +3,11 @@ using CounterStrikeSharp.API.Core;
 using CounterStrikeSharp.API.Modules.Utils;
 using CounterStrikeSharp.API.Modules.Commands;
 
-namespace YilmazHostingCore;
+namespace ResilientArena;
 
 public class OneVsOneMode
 {
-    private readonly YilmazPlugin _plugin;
+    private readonly ResilientArenaPlugin _plugin;
     private readonly ArenaManager _arenaManager;
     private readonly LoadoutManager _loadoutManager;
     private readonly MatchmakingManager _matchmakingManager;
@@ -15,7 +15,7 @@ public class OneVsOneMode
     // Harita ID
     private const string MAP_WORKSHOP_ID = "3242420753";
 
-    public OneVsOneMode(YilmazPlugin plugin)
+    public OneVsOneMode(ResilientArenaPlugin plugin)
     {
         _plugin = plugin;
         _arenaManager = new ArenaManager(plugin.ModuleDirectory);
@@ -25,7 +25,7 @@ public class OneVsOneMode
 
     public void Initialize()
     {
-        Console.WriteLine("[YilmazCore] 1v1 Modu Yukleniyor...");
+        Console.WriteLine("[ResilientArena] 1v1 Modu Yukleniyor...");
 
         // Eventleri plugin üzerinden kaydet
         _plugin.RegisterListener<Listeners.OnMapStart>(OnMapStart);
@@ -42,10 +42,10 @@ public class OneVsOneMode
         _plugin.AddCommandListener("drop", OnWeaponDrop);
 
         // Yönetim Komutları (Sadece 1v1'e özel olanlar)
-        _plugin.AddCommand("yh_arena_add", "Arena Ekle", OnAddArena);
-        _plugin.AddCommand("yh_arena_save", "Kaydet", OnSave);
-        _plugin.AddCommand("yh_fix_data", "Fix", OnFixData);
-        _plugin.AddCommand("yh_get_pos", "Pos", OnGetPos);
+        _plugin.AddCommand("ra_arena_add", "Arena Ekle", OnAddArena);
+        _plugin.AddCommand("ra_arena_save", "Kaydet", OnSave);
+        _plugin.AddCommand("ra_fix_data", "Fix", OnFixData);
+        _plugin.AddCommand("ra_get_pos", "Pos", OnGetPos);
 
         // Eğer reload atıldıysa hemen yapılandırmayı yükle
         _arenaManager.LoadConfig(Server.MapName);

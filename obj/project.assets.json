@@ -2561,9 +2561,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Kodlama\\CSharp\\YilmazHostingCore\\YilmazHostingCore.csproj",
-      "projectName": "YilmazHostingCore",
-      "projectPath": "D:\\Kodlama\\CSharp\\YilmazHostingCore\\YilmazHostingCore.csproj",
+      "projectUniqueName": "D:\\Kodlama\\CSharp\\YilmazHostingCore\\ResilientArena.csproj",
+      "projectName": "ResilientArena",
+      "projectPath": "D:\\Kodlama\\CSharp\\YilmazHostingCore\\ResilientArena.csproj",
       "packagesPath": "C:\\Users\\guven\\.nuget\\packages\\",
       "outputPath": "D:\\Kodlama\\CSharp\\YilmazHostingCore\\obj\\",
       "projectStyle": "PackageReference",

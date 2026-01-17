@@ -1,14 +1,14 @@
-# Yilmaz Hosting Core - Analysis, Edge Cases & Roadmap
+# Resilient Arena - Analysis, Edge Cases & Roadmap
 
-This document outlines scenarios that are currently unhandled, potential bugs identified in the logic, and ideas for future improvements.
+This document outlines scenarios that are currently unhandled, potential bugs identified in the logic, and ideas for future improvements for the **Resilient Arena** plugin.
 
-## 1. Unhandled Edge Cases & Potential Bugs
+## 1. Unhandled Edge Cases & Known Limitations
 
 ### A. Team Switching (Spectators)
-- **Issue:** The current system tracks players by `Slot` when they connect (`OnClientPutInServer`). It does NOT listen for team change events.
+- **Issue:** The current system tracks players by `Slot` when they connect (`OnClientPutInServer`). It currently handles basic disconnects but might not fully account for mid-game team switches (e.g., to Spectator).
 - **Scenario:** If a player joins the server and immediately switches to **Spectator**, they remain in the `_waitingQueue`.
 - **Consequence:** `ProcessQueue` might try to teleport a Spectator into an arena. Since Spectators don't have a valid `PlayerPawn` or physical body in the same way, `Teleport` might fail or behave weirdly.
-- **Fix:** Listen to `EventPlayerTeam` and remove players from the queue/areas if they switch to Spectator.
+- **Fix:** Listener for `EventPlayerTeam` is needed to remove players from the queue/areas if they switch to Spectator.
 
 ### B. Suicide / World Damage
 - **Issue:** `HandleDeath` relies on `killer` being valid to reward the winner.
@@ -18,7 +18,7 @@ This document outlines scenarios that are currently unhandled, potential bugs id
 
 ### C. Bot Handling
 - **Issue:** Code explicitly ignores bots in `ProcessQueue` (`player.IsBot` check).
-- **Scenario:** Server is empty, a player adds bots (`yh_bot_add`).
+- **Scenario:** Server is empty, a player adds bots via `ra_bot_add`.
 - **Consequence:** Bots will just stand in spawn or wander aimlessly. They will NOT be matched into arenas. The real player will wait in the queue forever if there are no other humans.
 - **Improvement:** Allow bots to enter the queue if the player count is low, or create a specific "Play vs Bot" logic.
 
@@ -50,7 +50,7 @@ This document outlines scenarios that are currently unhandled, potential bugs id
 
 ### B. Arena Preferences (Biome/Type)
 - **Idea:** If arenas have different designs (Long Range vs Close Quarters), allow players to set a preference.
-- **Implementation:** `yh_pref long` or `yh_pref close`. `ProcessQueue` tries to match preference with Arena ID tags.
+- **Implementation:** `ra_pref long` or `ra_pref close`. `ProcessQueue` tries to match preference with Arena ID tags.
 
 ### C. "King of the Hill" Visuals
 - **Idea:** Show a HUD message (HTML Center Print) for the player who has the highest win streak in the arena.

@@ -1,6 +1,6 @@
-# Yilmaz Hosting Core - Algorithms & Logic Documentation
+# Resilient Arena - Algorithms & Logic Documentation
 
-This document describes the internal logic and algorithms used in the Yilmaz Hosting Core plugin (v8.0.0).
+This document describes the internal logic and algorithms used in the Resilient Arena plugin (v1.0.0).
 
 ## 1. Matchmaking System (`MatchmakingManager.cs`)
 
@@ -13,14 +13,14 @@ The matchmaking system uses a **Winner Stays On** logic with a dynamic queuing s
 - **Logic:**
   - Upon connecting, a player is added to the queue after 2 seconds.
   - Upon losing a duel (death), the victim is respawned and added back to the queue.
-  - The queue is processed (`ProcessQueue`) whenever a player joins it or a match ends.
+  - The queue is processed (`ProcessQueue`) whenever a player joins it, a match ends, or someone disconnects.
 
 #### B. Arena Management (`_arenaOccupants`)
 - **Structure:** A dictionary mapping `ArenaID` to a list of `PlayerSlots` currently in that arena.
 - **Logic:**
   - `ProcessQueue` checks if there is any arena with exactly **1 player** (Waiting for opponent).
     - If found, the first player in the queue is sent there immediately.
-  - If no arena has a waiter, it checks for a **Empty Arena** (0 players).
+  - If no arena has a waiter, it checks for an **Empty Arena** (0 players).
     - If found, the first player in the queue is sent there to wait.
   - If all arenas are full (2 players each), the players in the queue continue to wait until a match finishes.
 
@@ -81,11 +81,11 @@ Manages the spatial data for where players should spawn.
 
 ---
 
-## 4. Main Plugin Lifecycle (`YilmazPlugin.cs`)
+## 4. Main Plugin Lifecycle (`ResilientArenaPlugin.cs`)
 
-The entry point that orchestrates the managers.
+This is the entry point that orchestrates the managers.
 
 - **OnMapStart:** Initializes `ArenaManager` and loads the config. Sets global server cvars (`mp_teammates_are_enemies`, etc.).
 - **OnClientPutInServer:** Hands the new player to `LoadoutManager` (defaults) and `MatchmakingManager` (queue).
 - **OnPlayerDeath:** Delegates the logic to `MatchmakingManager.HandleDeath`.
-- **OnRoundEnd / OnMatchEnd:** Forces a map change to the Workshop map defined in `MAP_WORKSHOP_ID` to ensure the server stays on the correct loop.
+- **OnRoundEnd / OnMatchEnd:** Forces a map change to the Workshop map defined in the code to ensure the server stays on the correct loop.

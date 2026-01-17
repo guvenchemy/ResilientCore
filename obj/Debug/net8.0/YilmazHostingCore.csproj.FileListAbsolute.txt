@@ -10,3 +10,4 @@ D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net8.0\YilmazHostingCore.dll
 D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net8.0\refint\YilmazHostingCore.dll
 D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net8.0\YilmazHostingCore.pdb
 D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net8.0\ref\YilmazHostingCore.dll
+D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net8.0\YilmazHostingCore.sourcelink.json

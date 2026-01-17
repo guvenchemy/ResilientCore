@@ -1,0 +1,13 @@
+D:\Kodlama\CSharp\YilmazHostingCore\bin\Debug\net8.0\ResilientArena.deps.json
+D:\Kodlama\CSharp\YilmazHostingCore\bin\Debug\net8.0\ResilientArena.dll
+D:\Kodlama\CSharp\YilmazHostingCore\bin\Debug\net8.0\ResilientArena.pdb
+D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net8.0\ResilientArena.csproj.AssemblyReference.cache
+D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net8.0\ResilientArena.GeneratedMSBuildEditorConfig.editorconfig
+D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net8.0\ResilientArena.AssemblyInfoInputs.cache
+D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net8.0\ResilientArena.AssemblyInfo.cs
+D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net8.0\ResilientArena.csproj.CoreCompileInputs.cache
+D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net8.0\ResilientArena.sourcelink.json
+D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net8.0\ResilientArena.dll
+D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net8.0\refint\ResilientArena.dll
+D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net8.0\ResilientArena.pdb
+D:\Kodlama\CSharp\YilmazHostingCore\obj\Debug\net8.0\ref\ResilientArena.dll
